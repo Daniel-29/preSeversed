@@ -1,0 +1,30 @@
+version: "3.8"
+
+services:
+  app:
+    container_name: app-backend
+    image: app-backend
+    restart: always
+    build:
+      context: .
+      target: development
+    volumes:
+      - ./src:/app/src
+      - ./images:/images
+    ports:
+      - 3050:3050
+    networks: 
+      frontend: 
+        aliases: 
+          - api 
+      backend: 
+        aliases: 
+          - rest   
+
+networks:
+  backend:
+    external: true
+    name: backend_network   
+  frontend: 
+    name: frontend_network
+    driver: bridge

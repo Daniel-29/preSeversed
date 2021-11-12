@@ -1,0 +1,31 @@
+<div class=" h-screen overflow-y-auto">
+<!--     <div class="w-full text-gray-300  py-3 px-4 ">
+        <button type="submit" class="absolute ml-4 mt-3 mr-4 ">
+        </button>
+        <input type="search" name="search" placeholder="Search foods"
+            class=" bg-dim-500 h-10 px-10 pr-5 w-full rounded-full text-sm focus:outline-none bg-purple-white shadow border-0" />
+    </div> -->
+    <div class="flex flex-col rounded-lg shadow-lg m-4 border-2 border-gray-600 divide-y divide-gray-700">
+        <div class="w-full hover:bg-gray-600">
+            <h2 class="px-6 py-6 text-xl font-semibold text-white">Contactos</h2>
+        </div>
+        <!--  <app-user-card *ngFor="let item of userFollow$ | async as list" >
+           {{(item?.id)}}
+       </app-user-card> -->
+        <div *ngFor="let item of userFollow$ | async as list" class="cursor-pointer hover:bg-gray-600 ">
+
+            <button (click)='onSelectedChat(item?.id)'
+                class="flex items-center w-full px-4 py-2 select-none hover:bg-gray-100 focus:outline-none">
+                <img class="w-12 mr-3 rounded-full border" src="{{(url+'cdn/user/'+item?.user_Chat?.image)}}" alt="Junior Coders" />
+                <div class="transform translate-y-0.5 text-left">
+                    <h3 class="leading-4 text-gray-400 hover "> {{(item?.user_Chat?.display_name)}}</h3>
+                    <span class="text-xs text-gray-500">@{{(item?.user_Chat?.username)}}</span>
+                </div>
+            </button>
+        </div>
+        <div class="flex justify-center">
+            <button (click)="onMoreData()" class=" px-4 my-2 bg-transparent border-2 border-blue-500 text-blue-500 text-lg 
+        rounded-full hover:bg-blue-500 hover:text-gray-100 focus:border-4 focus:border-blue-300">More</button>
+        </div>
+    </div>
+</div>

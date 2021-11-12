@@ -1,0 +1,108 @@
+<div class="w-full relative md:h-screen ">
+    <div class=" md:grid  md:grid-cols-6" id="nav-barleft">
+        <div class=""></div>
+        <div class="md:flex-col md:col-span-4 ">
+            <button  class="pt-2 md:invisible absolute right-1" clickable (click)="onTest()">
+                <svg-icon key="bars" class="text-white hover:text-indigo-500" fontSize="28px"></svg-icon>
+            </button>
+            <button class="m-3 flex cursor-pointer">
+                <h2 class="text-2xl text-indigo-300 tracking-wide ml-2 font-semibold">ef Recipes</h2>
+            </button>
+            <section [ngClass]="{hidden: navbar}" class="md:block">
+                <div class=" cursor-pointer mt-4 ">
+                    <a [routerLink]="['/home']" routerLinkActive="router-link-active" class="w-full pl-4 py-3 text-white flex items-center text-base font-semibold rounded-full
+                        hover:bg-gray-600 hover:text-blue-300">
+                        <!--<HomeLogo />-->
+                        <div class=" grid grid-cols-6">
+                            <div>
+                                <svg-icon key="home-simple" color="white" fontSize="20px"></svg-icon>
+                            </div>
+                            <div class=" col-span-5">
+                                <h2 class="ml-3">Home</h2>
+                            </div>
+
+                        </div>
+                    </a>
+                </div>
+                <div class=" cursor-pointer mt-2 ">
+                    <a [routerLink]="['/noti']" routerLinkActive="router-link-active" class="w-full pl-4 py-3 text-white flex items-center text-base font-semibold rounded-full
+                        hover:bg-gray-600 hover:text-white">
+                        <div class=" grid grid-cols-6">
+                            <div>
+                                <svg-icon key="bell" color="white" fontSize="20px"></svg-icon>
+                            </div>
+                            <div class=" col-span-5">
+                                <h2 class="ml-3">Notifications</h2>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class=" cursor-pointer mt-2 ">
+                    <a [routerLink]="['/messages']" routerLinkActive="router-link-active" class="w-full pl-4 py-3 text-white flex items-center text-base font-semibold rounded-full
+                        hover:bg-gray-600 hover:text-blue-300">
+                        <div class=" grid grid-cols-6">
+                            <div>
+                                <svg-icon key="messages" color="white" fontSize="20px"></svg-icon>
+                            </div>
+                            <div class=" col-span-5">
+                                <h2 class="ml-3">Messages</h2>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class=" cursor-pointer mt-2 ">
+                    <a  [routerLink]="['/profile', idUser]"  routerLinkActive="router-link-active" class="w-full pl-4 py-3 text-white flex items-center text-base font-semibold rounded-full
+                        hover:bg-gray-600 hover:text-blue-300">
+                        <div class=" grid grid-cols-6">
+                            <div>
+                                <svg-icon key="id-card" color="white" fontSize="20px"></svg-icon>
+                            </div>
+                            <div class=" col-span-5">
+                                <h2 class="ml-3">Profile</h2>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class=" cursor-pointer mt-2 ">
+                    <a [routerLink]="['/preferences']" routerLinkActive="router-link-active" class="w-full pl-4 py-3 text-white flex items-center text-base font-semibold rounded-full
+                        hover:bg-gray-600 hover:text-blue-300">
+                        <div class=" grid grid-cols-6">
+                            <div>
+                                <svg-icon key="gears" color="white" fontSize="20px"></svg-icon>
+                            </div>
+                            <div class=" col-span-5">
+                                <h2 class="ml-3">Preference</h2>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class=" cursor-pointer mt-2 ">
+                    <a [routerLink]="['/login']" routerLinkActive="router-link-active" class="w-full pl-4 py-3 text-white flex items-center text-base font-semibold rounded-full
+                        hover:bg-gray-600 hover:text-blue-300">
+                        <div class=" grid grid-cols-6">
+                            <div>
+                                <svg-icon key="arrow-right-from-bracket" color="white" fontSize="20px"></svg-icon>
+                            </div>
+                            <button (click)="onLogout()" class=" col-span-5">
+                                <h2 class="ml-3">Logout</h2>
+                            </button>
+                        </div>
+                    </a>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class="absolute bottom-0 w-full invisible md:visible ">
+        <div class="flex  mb-5 mx-10 py-2 rounded-full bg-dim-600 hover:bg-gray-600 ">
+            <div class="flex-none justify-center">
+                <img class="ml-2 h-12 w-12 rounded-full"
+                    src="{{url+'cdn/user/'+image}}" alt="user-profile-image" />
+            </div>
+            <div class="flex-grow h-auto  ">
+                <p class="text-white md:text-sx  lg:text-sm text-justify pl-2 py-2 invisible lg:visible">
+                    {{display_name}}@{{username}}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
