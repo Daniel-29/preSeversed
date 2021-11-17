@@ -1,0 +1,61 @@
+/* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+.bg-dim-700 {
+    --bg-opacity: 1;
+    background-color: #192734;
+  }
+
+.bg-dim-600 {
+--bg-opacity: 1;
+  background-color: #222e3a;
+}
+
+.bg-dim-500 {
+  --bg-opacity: 1;
+    background-color: #2e3841;
+  }
+
+.bg-init{
+--bg-opacity: 1;
+  background-color: #151f35;
+}  
+.bg-init-p{
+  --bg-opacity: 1;
+    background-color: #17233e;
+  } 
+
+/* width */
+::-webkit-scrollbar {
+  @apply w-2;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  @apply bg-gray-500;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  @apply bg-blue-600;
+  @apply rounded-3xl;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-blue-700;
+}
+
+.overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(73, 71, 71, 0.123);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,0 +1,52 @@
+<div class="md:flex md:h-screen bg-dim-700 ">
+    <div class="w-full md:flex-none md:w-1/4 md:h-screen ">
+        <app-side-bar-left idUser="{{UserData?.id}}" username="{{UserData?.username}}"
+            display_name="{{UserData?.display_name}}" image="{{UserData?.image}}">
+        </app-side-bar-left>
+    </div>
+    <div class="flex-grow h-screen  border-r-2 border-l-2 bg-dim-600 border-gray-500 overflow-y-auto">
+        <div class="flex-col">
+            <app-navigation-bar title="Post"></app-navigation-bar>
+            <app-card-post [isOwner]="false" idUser="{{UserData.id}}" idUserPost="{{User_id}}"
+                display_name="{{User_display_name}}" username="{{User_username}}" imageUser="{{User_image}}"
+                idPost="{{IdPost}}" title="{{(post?.title)}}" body="{{(post?.body)}}" image="{{(post?.image)}}"
+                nLike="{{(post?.nLike)}}" nComment="{{(nComment)}}"></app-card-post>
+            <div class="relative h-full w-full ">
+                <div class="h-full overflow-y-auto text-white ">
+                    <div class="flex flex-col py-6 px-10 overscroll-x-none">
+                        <app-received-message *ngFor="let item of  comments$ | async as list"
+                            class="overflow-ellipsis overflow-hidde " username="{{(item?.user_Action?.username)}}"
+                            body=" {{(item.body)}}" image="{{(item?.user_Action?.image)}}"></app-received-message>
+                    </div>
+                    <div class="flex justify-center">
+                        <button (click)="onMoreData()"
+                            class="my-4 px-4 py-2 bg-transparent border-2 border-blue-500 text-blue-500 text-lg 
+                        rounded-full hover:bg-blue-500 hover:text-gray-100 focus:border-4 focus:border-blue-300">More</button>
+                    </div>
+                </div>
+                <div class=" sticky top-0  inset-x-0 bottom-0 h-20 px-8 bg-dim-700">
+                    <form [formGroup]="formComment" (ngSubmit)="addCommentToPost()" class=" h-full flex">
+                        <div class="self-center sm:flex  bg-white rounded-lg w-full">
+                            <input formControlName="body" class="text-base  flex-grow outline-none px-2 " type="text"
+                                placeholder="New Comment" />
+                            <div class="ms:flex items-center  rounded-lg space-x-4 mx-auto ">
+                                <button
+                                    [class.bg-disabled]="formComment.controls.body.invalid && formComment.controls.body.touched "
+                                    [disabled]="formComment.controls.body.invalid " type="submit"
+                                    class=" px-4 py-2 text-white font-bold rounded-md bg-indigo-400 hover:bg-blue-500">Send</button>
+                            </div>
+                        </div>
+                        <span *ngIf="formComment.controls.body.invalid && formComment.controls.body.value  !='' "
+                            class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
+                            Invalid text for comments!.
+                        </span>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="flex-none lg:w-1/4 h-screen  hidden lg:flex ">
+        <app-side-bar-right class=" w-full"></app-side-bar-right>
+    </div>
+</div>

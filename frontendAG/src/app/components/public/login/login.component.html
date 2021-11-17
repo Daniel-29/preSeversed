@@ -1,0 +1,65 @@
+<div class="grid lg:grid-cols-3 h-screen bg-gray-800 ">
+    <div class="overscroll-auto bg-gray-800">
+        <div class=" pl-10 py-5 bg-init-p ">
+            <div class="cursor-pointer flex items-center">
+                <div>
+                    <!--  <app-logo class="w-10"></app-logo> -->
+                </div>
+                <div class="text-2xl text-indigo-200 tracking-wide ml-2 font-semibold">I still don't have a name</div>
+            </div>
+        </div>
+        <div class="mt-10 px-12 sm:px-24 md:px-48 lg:px-12 lg:mt-16 xl:px-24 xl:max-w-2xl  ">
+            <h2 class="text-center text-4xl text-indigo-200 font-display font-semibold lg:text-left xl:text-5xl
+                      xl:text-bold">Login</h2>
+            <div class="mt-12">
+                <form [formGroup]="formLogin" (ngSubmit)="onLogin()">
+                    <div>
+                        <label class="text-sm font-bold text-indigo-400 tracking-wide">Email Address</label>
+                        <input id="email" formControlName="email" type="email" placeholder="mike@gmail.com"
+                            class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" />
+                        <span *ngIf="formLogin.controls.email.invalid && formLogin.controls.email.value  !='' "
+                            class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
+                            Invalid text for email address!.
+                        </span>
+                    </div>
+                    <div class="mt-8">
+                        <div class="flex justify-between items-center">
+                            <label class="text-sm font-bold text-indigo-400 tracking-wide"> Password</label>
+                            <div>
+                                <a
+                                    class="text-xs font-display font-semibold text-gray-50 hover:text-indigo-800 cursor-pointer">
+                                    Forgot Password?
+                                </a>
+                            </div>
+                        </div>
+                        <input id="password" formControlName="password" type="password"
+                            placeholder="Enter your password"
+                            class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" />
+                        <span *ngIf="formLogin.controls.password.invalid && formLogin.controls.password.value  !='' "
+                            class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
+                            Invalid text for Password!. <br>
+                            At least 8 characters in length. <br> Lowercase letters. <br> Uppercase letters <br> Numbers. <br> Special characters.
+                        </span>
+                    </div>
+                    <div class="mt-10">
+                        <button type="submit" class="bg-indigo-500 text-gray-100 p-4 w-full rounded-full tracking-wide
+                                  font-semibold font-display focus:outline-none focus:shadow-outline hover:bg-indigo-600
+                                  shadow-lg">
+                            Log In
+                        </button>
+                    </div>
+                </form>
+                <div class="mt-12 text-sm font-display font-semibold text-gray-200 text-center">
+                    Don't have an account ?
+                    <a [routerLink]="['/register']" class="cursor-pointer text-indigo-400 hover:text-indigo-800"> Create
+                        account</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class=" lg:flex lg:col-span-2 bg-yellow  hidden bg-init items-center  justify-center ">
+        <div class="max-w-xs transform duration-200 hover:scale-150 cursor-pointer ">
+            <!--  <app-flogo class="w-5/6 mx auto text-indigo-500 bg-indigo-600 "></app-flogo> -->
+        </div>
+    </div>
+</div>

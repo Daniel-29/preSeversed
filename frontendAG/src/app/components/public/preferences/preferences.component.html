@@ -1,0 +1,158 @@
+<div class="md:flex md:h-screen bg-dim-700 ">
+  <div class="w-full md:flex-none md:w-1/4 md:h-screen ">
+    <app-side-bar-left idUser="{{UserData?.id}}" username="{{UserData?.username}}"
+      display_name="{{UserData?.display_name}}" image="{{UserData?.image}}">
+    </app-side-bar-left>
+  </div>
+  <div class="flex-grow h-screen  border-r-2 border-l-2 bg-dim-600 border-gray-500 overflow-y-auto">
+    <app-navigation-bar title="Preferences"></app-navigation-bar>
+    <form [formGroup]="PhotoPreferences" (ngSubmit)="onPhotoUser()" class="w-full mt-5">
+      <div class="flex-col mx-6">
+        <div class="relative flex justify-center  ">
+          <h2 class=" text-center text-indigo-500 text-3xl mt-4">Change photo</h2>
+          <a (click)="onEditPhotoSettings()" class="absolute right-3 hover:text-yellow-600 text-white px-2 mt-4">
+            <svg-icon class="" key="pen-to-square" color="hover:text-red-600" fontSize="28px"></svg-icon>
+          </a>
+        </div>
+        <div class="flex items-center">
+          <img *ngIf="filePath =='null' " class="h-28 w-28  rounded-full" src="{{url+'cdn/user/'+UserData?.image}} " alt="image-user" />
+          <img *ngIf="filePath !='null' " class="h-28 w-28  rounded-full" [src]="filePath" alt="image-user" />
+          <div class=" w-full ml-4">
+            <file-upload class="w-full " *ngIf="!editPhotoSettings" formControlName="files" multiple="false"
+              accept="image/*" maxsize="10 MB" [animation]="animation"></file-upload>
+          </div>
+          <span *ngIf="PhotoPreferences.controls.files.invalid "
+            class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
+            Invalid file for image!.
+          </span>
+        </div>
+
+        <div *ngIf="!editPhotoSettings" class=" flex-col flex">
+          <label for="default" class="text-white select-none text-xl">Confirm password:</label>
+          <input formControlName="password" type="password" name="default" placeholder="Current password"
+            class="px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200" />
+          <span *ngIf="PhotoPreferences.controls.password.invalid  && PhotoPreferences.controls.password.value  !='' "
+            class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
+            Invalid text for Password!. <br>
+            At least 8 characters in length. <br> Lowercase letters. <br> Uppercase letters <br> Numbers. <br> Special characters.
+          </span>
+          <button type="submit"
+            class="my-2 h-10 text-white font-bold rounded-md bg-indigo-400 hover:bg-blue-500">save</button>
+        </div>
+      </div>
+    </form>
+    <form [formGroup]="formPreferences" (ngSubmit)="onChangeDataUser()" class="w-full mt-5">
+      <div class="relative flex justify-center  ">
+        <h2 class=" text-center text-indigo-500 text-3xl mt-4">Profile Settings </h2>
+        <a (click)="onEditUserSettings()" class="absolute right-3 hover:text-yellow-600 text-white px-2 mt-4">
+          <svg-icon class="" key="pen-to-square" color="hover:text-red-600" fontSize="28px"></svg-icon>
+        </a>
+      </div>
+      <div class="flex flex-col px-6 space-y-2">
+        <!--         <div class="grid grid-cols-5">
+          <div class="col-span-5 flex flex-col ">
+            <label for="default" class="text-white select-none text-xl">Username:</label>
+            <input formControlName="username" value="{{UserData?.username}}" type="text" name="default"
+              placeholder="username"
+              class="px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200" />
+            <label for="default" class="text-white select-none text-xl">Display name:</label>
+            <input formControlName="display_name" value="{{UserData?.display_name}}" type="text" name="default"
+              placeholder="display name"
+              class="px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200" />
+          </div>
+          <div class="flex justify-center items-center">
+            <img *ngIf="filePath =='null' " class="h-28 w-28 rounded-full" src="{{UserData?.image}} "
+              alt="image-user" />
+            <img *ngIf="filePath !='null' " class="h-28 w-28 rounded-full" [src]="filePath" alt="image-user" />
+          </div>
+        </div>
+        <div class=" w-full">
+          <file-upload class="w-full" *ngIf="!editProfileSettings" formControlName="files" multiple="false"
+            accept="image/*" maxsize="5 MB" [animation]="animation"></file-upload>
+        </div> -->
+        <label for="default" class="text-white select-none text-xl">Username:</label>
+        <input formControlName="username" value="{{UserData?.username}}" type="text" name="default"
+          placeholder="username"
+          class="px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200" />
+        <span *ngIf="formPreferences.controls.username.invalid  && formPreferences.controls.username.value  !='' "
+          class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
+          Invalid text for username!.
+        </span>
+        <label for="default" class="text-white select-none text-xl">Display name:</label>
+        <input formControlName="display_name" value="{{UserData?.display_name}}" type="text" name="default"
+          placeholder="display name"
+          class="px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200" />
+        <span
+          *ngIf="formPreferences.controls.display_name.invalid  && formPreferences.controls.display_name.value  !='' "
+          class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
+          Invalid text for display name!.
+        </span>
+        <label for="default" class="text-white select-none text-xl">Email:</label>
+        <input formControlName="email" value="{{UserData?.email}}" type="email" name="default" placeholder="email"
+          class="px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200" />
+        <span *ngIf="formPreferences.controls.email.invalid  && formPreferences.controls.email.value  !='' "
+          class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
+          Invalid text for email!.
+        </span>
+        <label for="default" class="text-white select-none text-xl">Description:</label>
+        <input formControlName="description" value="{{UserData?.description}}" type="text" name="default"
+          placeholder="your description"
+          class="px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200" />
+        <span *ngIf="formPreferences.controls.description.invalid  && formPreferences.controls.description.value  !='' "
+          class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
+          Invalid text for description!.
+        </span>
+        <div *ngIf="!editProfileSettings" class=" flex-col flex">
+          <label for="default" class="text-white select-none text-xl">Confirm password:</label>
+          <input formControlName="password" type="password" name="default" placeholder="Current password"
+            class="px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200" />
+          <span *ngIf="formPreferences.controls.password.invalid  && formPreferences.controls.password.value  !='' "
+            class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
+            Invalid text for Password!. <br>
+            At least 8 characters in length. <br> Lowercase letters. <br> Uppercase letters <br> Numbers. <br> Special characters.
+          </span>
+          <button type="submit"
+            class="my-2 h-10 text-white font-bold rounded-md bg-indigo-400 hover:bg-blue-500">save</button>
+        </div>
+      </div>
+
+    </form>
+    <form [formGroup]="formPassword" (ngSubmit)="onChangePassword()" class="w-full mt-7 border-t-2 border-gray-700 ">
+      <div class="relative flex justify-center  ">
+        <h2 class=" text-center text-indigo-500 text-3xl mt-4">Password Settings</h2>
+        <a (click)="onEditPassword()" class="absolute right-3 hover:text-yellow-600 text-white px-2 mt-4">
+          <svg-icon class="" key="pen-to-square" color="hover:text-red-600" fontSize="28px"></svg-icon>
+        </a>
+      </div>
+      <div class="flex flex-col px-6 space-y-2">
+        <label for="default" class="text-white select-none text-xl">New password:</label>
+        <input formControlName="new_password" type="password" name="default" placeholder="new password"
+          class="px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200" />
+        <span *ngIf="formPassword.controls.new_password.invalid  && formPassword.controls.new_password.value  !='' "
+          class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
+          Invalid text for new password!.
+        </span>
+        <label for="default" class="text-white select-none text-xl">confirm password:</label>
+        <input formControlName="confirm_password" type="password" name="default" placeholder="confirm password"
+          class="px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200" />
+        <span *ngIf="formPassword.controls.confirm_password.invalid  && formPassword.controls.confirm_password.value  !='' "
+          class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
+          Invalid text for confirm password!.
+        </span>
+        <label *ngIf="!editPassword" for="default" class="text-white select-none text-xl">Current
+          password:</label>
+        <input formControlName="old_password" *ngIf="!editPassword" type="password" name="default"
+          placeholder="Current password"
+          class="px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200" />
+        <span *ngIf="formPassword.controls.old_password.invalid  && formPassword.controls.old_password.value  !='' "
+          class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
+          Invalid text for old password!.
+        </span>
+        <button *ngIf="!editPassword" type="submit"
+          class=" right-0 px-4 py-2 text-white font-bold rounded-md bg-indigo-400 hover:bg-blue-500">change</button>
+      </div>
+    </form>
+  </div>
+  <div class="flex-none lg:w-1/4 h-screen  hidden lg:flex ">
+  </div>
+</div>
