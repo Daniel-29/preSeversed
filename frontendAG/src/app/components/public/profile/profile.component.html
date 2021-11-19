@@ -1,0 +1,62 @@
+<div class="md:flex md:h-screen bg-dim-700 ">
+    <div class="w-full md:flex-none md:w-1/4 md:h-screen ">
+        <app-side-bar-left 
+        idUser="{{UserData?.id}}" 
+        username="{{UserData?.username}}" 
+        display_name="{{UserData?.display_name}}"
+        image="{{UserData?.image}}">
+        </app-side-bar-left>
+    </div>
+    <div class="flex-grow h-screen  border-r-2 border-l-2 bg-dim-600 border-gray-500 overflow-y-auto">
+        <div class="flex-col ">
+            <app-navigation-bar title="Profile"></app-navigation-bar>
+            <app-profile-card 
+            IdUser="{{IdUserProfile}}"
+            [isOwner]="isOwner"
+            IdtoFollow="{{UserData.id}}"
+            display_name="{{display_name}}"
+            username="{{username}}"
+            image="{{image}}"
+            description="{{description}}"
+            following="{{following}}"
+            followers="{{followers}}">
+            </app-profile-card>
+            <app-new-post
+            *ngIf="IdUserProfile == UserData?.id "
+            idUserOwner="{{IdUserProfile}}">
+            </app-new-post>
+            <app-card-post
+            *ngFor="let item of post$ | async as list"
+            [isOwner]="isOwner"
+            idUser="{{UserData.id}}"
+            idUserPost="{{IdUserProfile}}"
+            display_name="{{display_name}}"
+            username="{{username}}"
+            imageUser="{{image}}"
+            idPost="{{item.id}}"
+            title="{{item.title}}"
+            body="{{item.body}}"
+            image="{{item.image}}"
+            nLike="{{item.nLike}}"
+            nComment="{{item.nComment}}"
+            ></app-card-post>
+            <div class="flex justify-center" >
+                <button  
+                (click)="onMoreData()" 
+                class="my-4 px-4 py-2 bg-transparent border-2 border-blue-500 text-blue-500 text-lg 
+                rounded-full hover:bg-blue-500 hover:text-gray-100 focus:border-4 focus:border-blue-300">More</button>
+            </div>
+        </div>
+
+    </div>
+    <div class="flex-none lg:w-1/4 h-screen  hidden lg:flex ">
+        <app-side-bar-right class=" w-full"></app-side-bar-right>
+    </div>
+</div>
+
+<!-- following="{{UserData?.following}}"
+followers="{{UserData?.followers}}"
+display_name="{{UserData?.display_name}}"
+username="{{UserData?.username}}"
+description="{{UserData?.description}}"
+image="{{UserData?.image}}" -->

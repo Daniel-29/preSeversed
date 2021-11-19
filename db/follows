@@ -1,0 +1,235 @@
+[{
+  "_id": {
+    "$oid": "6195732e4f25ee8c51873c6c"
+  },
+  "user_Owner": "619570414f25ee8c51873bcd",
+  "user_follwing": "61956c7d4f25ee8c51873afd",
+  "createdAt": {
+    "$date": "2021-11-17T21:25:02.259Z"
+  },
+  "updatedAt": {
+    "$date": "2021-11-17T21:25:02.259Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "619573404f25ee8c51873c93"
+  },
+  "user_Owner": "619570414f25ee8c51873bcd",
+  "user_follwing": "6195633621edf8fb564f9c87",
+  "createdAt": {
+    "$date": "2021-11-17T21:25:20.764Z"
+  },
+  "updatedAt": {
+    "$date": "2021-11-17T21:25:20.764Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "619573ad4f25ee8c51873d36"
+  },
+  "user_Owner": "61956c7d4f25ee8c51873afd",
+  "user_follwing": "619570414f25ee8c51873bcd",
+  "createdAt": {
+    "$date": "2021-11-17T21:27:09.783Z"
+  },
+  "updatedAt": {
+    "$date": "2021-11-17T21:27:09.783Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "619573bb4f25ee8c51873d5d"
+  },
+  "user_Owner": "61956c7d4f25ee8c51873afd",
+  "user_follwing": "6195633621edf8fb564f9c87",
+  "createdAt": {
+    "$date": "2021-11-17T21:27:23.397Z"
+  },
+  "updatedAt": {
+    "$date": "2021-11-17T21:27:23.397Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "619573d34f25ee8c51873d90"
+  },
+  "user_Owner": "6195633621edf8fb564f9c87",
+  "user_follwing": "619570414f25ee8c51873bcd",
+  "createdAt": {
+    "$date": "2021-11-17T21:27:47.387Z"
+  },
+  "updatedAt": {
+    "$date": "2021-11-17T21:27:47.387Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "619573de4f25ee8c51873da8"
+  },
+  "user_Owner": "6195633621edf8fb564f9c87",
+  "user_follwing": "61956c7d4f25ee8c51873afd",
+  "createdAt": {
+    "$date": "2021-11-17T21:27:58.543Z"
+  },
+  "updatedAt": {
+    "$date": "2021-11-17T21:27:58.543Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61957b0f4f25ee8c51874026"
+  },
+  "user_Owner": "619561ce21edf8fb564f9c76",
+  "user_follwing": "619570414f25ee8c51873bcd",
+  "createdAt": {
+    "$date": "2021-11-17T21:58:39.156Z"
+  },
+  "updatedAt": {
+    "$date": "2021-11-17T21:58:39.156Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61957b174f25ee8c5187403e"
+  },
+  "user_Owner": "619561ce21edf8fb564f9c76",
+  "user_follwing": "61956c7d4f25ee8c51873afd",
+  "createdAt": {
+    "$date": "2021-11-17T21:58:47.517Z"
+  },
+  "updatedAt": {
+    "$date": "2021-11-17T21:58:47.517Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61957b2f4f25ee8c51874065"
+  },
+  "user_Owner": "619561ce21edf8fb564f9c76",
+  "user_follwing": "6195633621edf8fb564f9c87",
+  "createdAt": {
+    "$date": "2021-11-17T21:59:11.387Z"
+  },
+  "updatedAt": {
+    "$date": "2021-11-17T21:59:11.387Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61957ce34f25ee8c51874167"
+  },
+  "user_Owner": "619561ce21edf8fb564f9c76",
+  "user_follwing": "61957c124f25ee8c5187410c",
+  "createdAt": {
+    "$date": "2021-11-17T22:06:27.493Z"
+  },
+  "updatedAt": {
+    "$date": "2021-11-17T22:06:27.493Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61957d264f25ee8c518742c2"
+  },
+  "user_Owner": "6195628921edf8fb564f9c80",
+  "user_follwing": "619561ce21edf8fb564f9c76",
+  "createdAt": {
+    "$date": "2021-11-17T22:07:34.172Z"
+  },
+  "updatedAt": {
+    "$date": "2021-11-17T22:07:34.172Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61957d314f25ee8c518742cd"
+  },
+  "user_Owner": "6195628921edf8fb564f9c80",
+  "user_follwing": "61957c124f25ee8c5187410c",
+  "createdAt": {
+    "$date": "2021-11-17T22:07:45.475Z"
+  },
+  "updatedAt": {
+    "$date": "2021-11-17T22:07:45.475Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6195810f4f25ee8c518744cf"
+  },
+  "user_Owner": "61957c124f25ee8c5187410c",
+  "user_follwing": "6195628921edf8fb564f9c80",
+  "createdAt": {
+    "$date": "2021-11-17T22:24:15.282Z"
+  },
+  "updatedAt": {
+    "$date": "2021-11-17T22:24:15.282Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "619581224f25ee8c51874540"
+  },
+  "user_Owner": "61957c124f25ee8c5187410c",
+  "user_follwing": "619561ce21edf8fb564f9c76",
+  "createdAt": {
+    "$date": "2021-11-17T22:24:34.550Z"
+  },
+  "updatedAt": {
+    "$date": "2021-11-17T22:24:34.550Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6195a32d1268034b7f9f6ac2"
+  },
+  "user_Owner": "619561ce21edf8fb564f9c76",
+  "user_follwing": "6195628921edf8fb564f9c80",
+  "createdAt": {
+    "$date": "2021-11-18T00:49:49.316Z"
+  },
+  "updatedAt": {
+    "$date": "2021-11-18T00:49:49.316Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6195a6cc1268034b7f9f6cbf"
+  },
+  "user_Owner": "6195a59b1268034b7f9f6b37",
+  "user_follwing": "6195628921edf8fb564f9c80",
+  "createdAt": {
+    "$date": "2021-11-18T01:05:16.781Z"
+  },
+  "updatedAt": {
+    "$date": "2021-11-18T01:05:16.781Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6195a6d01268034b7f9f6cd2"
+  },
+  "user_Owner": "6195a59b1268034b7f9f6b37",
+  "user_follwing": "619561ce21edf8fb564f9c76",
+  "createdAt": {
+    "$date": "2021-11-18T01:05:20.730Z"
+  },
+  "updatedAt": {
+    "$date": "2021-11-18T01:05:20.730Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6195a6d71268034b7f9f6ce9"
+  },
+  "user_Owner": "6195a59b1268034b7f9f6b37",
+  "user_follwing": "619570414f25ee8c51873bcd",
+  "createdAt": {
+    "$date": "2021-11-18T01:05:27.779Z"
+  },
+  "updatedAt": {
+    "$date": "2021-11-18T01:05:27.779Z"
+  },
+  "__v": 0
+}]

@@ -1,0 +1,52 @@
+<div class="w-full border-b-2 border-gray-500 ">
+    <a >
+        <div class="flex-col">
+            <div class="flex p-4 pb-0 w-full relative">
+                <a class="flex-shrink-0 group block">
+                    <div class="flex items-center">
+                        <div>
+                            <img class="inline-block h-10 w-10 rounded-full" src="{{url+'cdn/user/'+imageUser}}" alt="" />
+                        </div>
+                        <div class="ml-3">
+                            <p [routerLink]="['/profile', idUserPost]"  class="text-base   hover:underline cursor-pointer leading-6 font-medium text-white">
+                              {{display_name}}
+                                <span class="text-sm leading-5 font-medium   transition ease-in-out duration-100">
+                                    @{{username}} 
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                </a>
+                <div *ngIf="isOwner" class="flex absolute right-2 ">
+<!--                     <button class="flex hover:text-yellow-600 text-white px-2">
+                        <svg-icon class="" key="pen-to-square" color="hover:text-red-600" fontSize="28px"></svg-icon>
+                    </button> -->
+                    <button (click)="onDeletePost()" class="flex hover:text-red-600 text-white px-2">
+                        <svg-icon class="" key="trash-can" color="hover:text-red-600" fontSize="28px"></svg-icon>
+                    </button>
+                </div>
+            </div>
+            <div class="w-full py-2 px-6">
+                <span class=" font-semibold text-xl text-white">{{title}}</span>
+                <p class="text-base overflow-y-auto font-medium text-gray-300 ">{{body}}</p>
+            </div>
+            <div *ngIf="image!=''" class=" px-6 pt-3">
+                <img class=" object-contain max-h-screen m w-full" src="{{url+'cdn/post/'+image}}" alt="" />
+            </div>
+            <div class="grid grid-cols-2 justify-center py-3 w-full">
+                <div class="flex justify-center ">
+                    <button (click)="LikerDislikear()" [ngClass]="{myRed: isLiked}" class="flex hover:text-red-600 text-white">
+                        <svg-icon class="" key="heart" color="hover:text-red-600" fontSize="28px"></svg-icon>
+                        <h2 class="pl-3">{{nLike}}</h2>
+                    </button>
+                </div>
+                <div class="flex justify-center ">
+                    <a [routerLink]="['/post', idPost]" class="flex hover:text-green-600 text-white">
+                        <svg-icon class="" key="comments" color="hover:text-red-600" fontSize="28px"></svg-icon>
+                        <h2 class="pl-3">{{nComment}}</h2>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </a>
+</div>

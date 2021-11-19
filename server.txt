@@ -1,0 +1,85 @@
+Hostname: debianSSED
+Domain name: ssed
+Root password: MediaSeddS10%
+user: danielbm
+pass user: cl
+mongo user: sedBase
+mongo pass: sedMbaseUS11#
+
+
+apt-get install sudo
+usermod -aG sudo danielbm
+
+ssh danielbm@192.168.1.34
+
+//install docker
+
+sudo apt-get install \
+    ca-certificates \
+    curl \
+    gnupg \
+    lsb-release
+
+curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+sudo apt-get update
+
+sudo apt-get install docker-ce docker-ce-cli containerd.io
+
+// start docker
+
+sudo systemctl start docker
+
+sudo systemctl start docker
+
+// install docker compose
+
+sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+
+sudo chmod +x /usr/local/bin/docker-compose
+
+sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+
+docker-compose --version
+
+
+
+"Containers": {
+"19a19fea458b98a8af1e3d34a63ed95502a6b36e098afced520d1a1613fbf37e": {
+"Name": "mongodb",
+"EndpointID": "5d9edb96976a640f770be44998973077ff73b4a6127e4e6f088d419738b6cae4",
+"MacAddress": "02:42:ac:12:00:02",
+"IPv4Address": "172.18.0.2/16",
+"IPv6Address": ""
+},
+"84b4b2fb011846673692cea5ee4c3227552cdfb9108b5ce910b5c8ff1976d30f": {
+"Name": "app-backend",
+"EndpointID": "8d01348c1b9523a9200c0c17a23bbd59068c93fb3c4e287bf0a72f1f54c3d061",
+"MacAddress": "02:42:ac:12:00:03",
+"IPv4Address": "172.18.0.3/16",
+"IPv6Address": ""
+}
+},
+
+"Containers": {
+"84b4b2fb011846673692cea5ee4c3227552cdfb9108b5ce910b5c8ff1976d30f": {
+"Name": "app-backend",
+"EndpointID": "9d6554a7a272e05426e3f4de0ac0a14e39d17ff8f3e4d188d3e99959458cd9c1",
+"MacAddress": "02:42:ac:13:00:03",
+"IPv4Address": "172.19.0.3/16",
+"IPv6Address": ""
+},
+"aafceb9207a761a099810e5e5d85eecfedb9fa99ff92b92f2c3621d08c8dc2fc": {
+"Name": "app-frontend",
+"EndpointID": "d3a6cef94820098d6979182b611f7b0deb5f696689c0b147f246d6572dc2f09c",
+"MacAddress": "02:42:ac:13:00:02",
+"IPv4Address": "172.19.0.2/16",
+"IPv6Address": ""
+}
+},
+
+
